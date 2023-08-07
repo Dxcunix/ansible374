@@ -1,0 +1,151 @@
+    1  git --version
+    2  mkdir banking
+    3  cd banking/
+    4  git status 
+    5  git init
+    6  git status 
+    7  git remote -v
+    8  cd ..
+    9  git clone https://github.com/ssureshmuga/ansible
+   10  cd ansible/
+   11  git remote -v
+   12  cd ../banking/
+   13  git config --global -l
+   14  cd ../ansible/
+   15  git config --global -l
+   16  git config --global --list
+   17  git config --list
+   18  cd ../banking/
+   19  git config --list
+   20  git config --global user.name suresh
+   21  git config --global user.email ssureshmuga@gmail.com
+   22  git config --list
+   23  touch file1
+   24  touch file2
+   25  git status 
+   26  git add file1
+   27  git status 
+   28  git rm --cached file1 
+   29  git status 
+   30  git add .
+   31  git status 
+   32  git commit -n 'first commit'
+   33  git log 
+   34  git commit -n 'add files'
+   35  git commit -m 'first commit'
+   36  git log 
+   37  history 
+   38  git remote -v
+   39  git branch devops
+   40  git branch 
+   41  git checkout devops 
+   42  git log 
+   43  touch devops1 devops2
+   44  git status 
+   45  git add .
+   46  git status 
+   47  git commit -m 'devops commit'
+   48  git status 
+   49  git log 
+   50  git checkout master 
+   51  git log 
+   52  git merge devops 
+   53  git log 
+   54  git revert devops 
+   55  git log 
+   56  git checkout devops 
+   57  git log 
+   58  git log --online
+   59  git checkout devops 
+   60  git log
+   61  git checkout master 
+   62  git checkout devops 
+   63  git log --oneline 
+   64  git reset 7f63ef5 --hard
+   65  git log 
+   66  ls
+   67  git remote -v
+   68  git remote add origin https://github.com/ssureshmuga/banking
+   69  git remote -v
+   70  git branch 
+   71  git push -u origin master
+   72  cd
+   73  podman images
+   74  podman login -u admin -p redhat hub.lab.example.com
+   75  podman pull hub.lab.example.com/ee-minimal-rhel8
+   76  podman images
+   77  podman pull hub.lab.example.com/ee-supported-rhel8
+   78  podman pull hub.lab.example.com/ee-29-rhel8
+   79  podman images
+   80  sudo dnf install ansible-navigator
+   81  ansible-navigator --version
+   82  ansible-navigator images --eei ee-supported-rhel8
+   83  history 
+   84  mkdir suresh
+   85  cd suresh/
+   86  mkdir collections
+   87  vim ansible.cfg
+   88  ansible-galaxy collection list
+   89  ansible-galaxy collection install community.general -p collections/
+   90  ansible-galaxy collection list
+   91  vim ansible.cfg 
+   92  ansible-galaxy collection install ansible.netcommon -p collections/
+   93  ansible-galaxy collection list
+   94  vim ansible.cfg 
+   95  vim collections/requirements.yml
+   96  ansible-galaxy collection install -r collections/requirements.yml -p collections/
+   97  ansible-galaxy collection list
+   98  ansible-galaxy collection install ~/Downloads/netapp-cloudmanager-21.22.0.tar.gz -p collections/
+   99  ansible-galaxy collection list
+  100  ansible-navigator images --eei ee-supported-rhel8
+  101  podman login -u admin -p redhat hub.lab.example.com
+  102  ansible-navigator images --eei ee-supported-rhel8
+  103  ansible-galaxy collection list
+  104  podman login -u admin -p redhat hub.lab.example.com
+  105  ansible-navigator images --eei ee-supported-rhel8
+  106  ansible-navigator collections -eei ee-supported-rhel8
+  107  ansible-navigator collections --eei ee-supported-rhel8
+  108  cd
+  109  lab start controller-playbooks
+  110  cd .ssh/
+  111  ls
+  112  pwd
+  113  cat gitlab_rsa
+  114  ll
+  115  cat lab_rsa
+  116  cd
+  117  git clone git@git.lab.example.com:git/controller-playbooks.git
+  118  ssh controller
+  119  lab start develop-navigator 
+  120  sudo yum install ansible-navigator
+  121  cd develop-navigator/
+  122  tree 
+  123  cd develop-navigator/
+  124  tre
+  125  tree 
+  126  cat intranet.yml 
+  127  less intranet.yml 
+  128  !
+  129  podman login hub.lab.example.com
+  130  ansible-navigator run intranet.yml -m stdout --eei ee-supported-hel8
+  131  podman images list
+  132  ansible-navigator images list
+  133  history 
+  134  77!
+  135  podman pull hub.lab.example.com/ee-supported-rhel8
+  136  podman images list
+  137  cd 
+  138  ll
+  139  cd banking/
+  140  cd develop-navigator/
+  141  cd 
+  142  ll
+  143  cd develop-navigator/
+  144  ll
+  145  run ansible-navigator.log -m stdout
+  146  ansible-navigator run intranet.yml -m stdout
+  147  cd
+  148  git clone https://github.com/ssureshmuga/ansible374
+  149  ll
+  150  cd ansible374/
+  151  history >> history394.txt
