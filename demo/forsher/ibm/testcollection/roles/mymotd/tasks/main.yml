@@ -1,0 +1,10 @@
+---
+# tasks file for mymotd
+
+- ansible.builtin.template:
+    src: motd.j2
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: '8644'
+  become: true
