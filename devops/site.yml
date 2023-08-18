@@ -1,0 +1,5 @@
+---
+- name: roles config play
+  hosts: web
+  roles:
+    - ibm.testcollection.mymotd      
