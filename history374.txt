@@ -1,0 +1,154 @@
+    1  mkdir devops
+    2  cd devops/
+    3  vim inventory
+    4  vim ansible.cfg
+    5  sudo yum install ansible-navigator -y
+    6  ansible-navigator settings --effective --eei ee-supported-rhel8 > /tmp/ansible-navigator.yml
+    7  podman login -u admin -p redhat hub.lab.example.com
+    8  ansible-navigator settings --effective --eei ee-supported-rhel8 > /tmp/ansible-navigator.yml
+    9  cp /tmp/ansible-navigator.yml .
+   10  vim ansible-navigator.yml 
+   11  ls
+   12  rm ansible-navigator.log 
+   13  ls
+   14  cat ansible-navigator.yml 
+   15  ansible-galaxy collection init ibm.testcollection
+   16  tree
+   17  cd ibm/testcollection/
+   18  grep -Ev "^#|^$" galaxy.yml 
+   19  mkdir meta
+   20  vim meta/runtime.yml
+   21  mkdir plugins/modules
+   22  lab start create-writing 
+   23  cp ~/create-writing/myping.py plugins/modules/
+   24  tree
+   25  cd roles/
+   26  ansible-galaxy role init mymotd
+   27  vim mymotd/templates/motd.j2
+   28  vim mymotd/tasks/main.yml 
+   29  cd ..
+   30  tree
+   31* rm -vr docs
+   32  rm -vr docs 
+   33  rm -vr roles/mymotd/{defaults,files,handlers,tests,vars}
+   34  tree
+   35  ansible-galaxy collection build
+   36  tree
+   37  cd ../..
+   38  vim ansible.cfg 
+   39  #ansible-galaxy collection install ibm.testcollection -p collections/
+   40  mkdir collections
+   41  ansible-galaxy collection install ibm.testcollection -p collections/
+   42  ansible-galaxy collection list
+   43  rm -rf collections/ansible_collections/ibm
+   44  ansible-galaxy collection list
+   45  tree
+   46  ansible-galaxy collection install ibm/testcollection/ibm-testcollection-1.0.0.tar.gz 
+   47  ansible-galaxy collection list
+   48  cd collections/
+   49  rm -rf *
+   50  cd ..
+   51  cd ibm/testcollection/
+   52  rm ibm-testcollection-1.0.0.tar.gz 
+   53  ansible-galaxy collection build
+   54  ansible-galaxy collection list
+   55  cd ../..
+   56  ansible-galaxy collection list
+   57  ansible-galaxy collection install ibm/testcollection/ibm-testcollection-1.0.0.tar.gz 
+   58  ansible-galaxy collection list
+   59  cd ibm/testcollection/
+   60  ansible-galaxy collection list
+   61  pwd
+   62  cd ../../ansible.cfg
+   63  cd ../
+   64  vim ../ansible.cfg 
+   65  ansible-galaxy collection list
+   66  cd ../
+   67  ansible-galaxy collection list
+   68  cd ibm/
+   69  ansible-galaxy collection list
+   70  cd ..
+   71  ansible-galaxy collection list
+   72  vim ansible.cfg 
+   73  ansible-galaxy collection list
+   74  vim ansible.cfg 
+   75  ansible-galaxy collection list
+   76  cd ibm/
+   77  ansible-galaxy collection list
+   78  cd ..
+   79  vim ansible.cfg 
+   80  ansible-galaxy collection list
+   81  cd collections/
+   82  rm -rf *
+   83  cd ..
+   84  ansible-galaxy collection list
+   85  mkdir ee-custom
+   86  cd ee-custom/
+   87  vim execution-environment.yml
+   88  vim requirements.yml
+   89  cp ../ibm/testcollection/ibm-testcollection-1.0.0.tar.gz .
+   90  vim requirements.yml 
+   91  vim requirements.txt
+   92  vim bindep.txt
+   93  tree
+   94  ansible-builder create
+   95  cp ibm-testcollection-1.0.0.tar.gz context/_build/
+   96  tree
+   97  #ansible-builder build -t ee-motd-minimal:1.0
+   98  ansible-builder build -t ee-motd-minimal:1.0
+   99  podman login -u admin -p redhat hub.lab.example.com
+  100  ansible-builder build -t ee-motd-minimal:1.0
+  101  podman pull ee-minimal-rhel8
+  102  ansible-builder build -t ee-motd-minimal:1.0
+  103  vim execution-environment.yml
+  104  ansible-builder create
+  105  ansible-builder build -t ee-motd-minimal:1.0
+  106  podman images
+  107  cd ..
+  108  ansible-galaxy collection list
+  109  ansible-navigator images --eei ee-motd-minimal:1.0
+  110  ansible-navigator images --eei ee-motd-minimal:1.0 -m stdin
+  111  vim ansible-navigator.yml 
+  112  ansible-navigator images --eei ee-motd-minimal:1.0 
+  113  vim site.yml
+  114  ansible-galaxy collection list
+  115  ansible-navigator run site.yml --eei ee-minimal:1.0 -m stdout
+  116  ansible-navigator run site.yml --eei localhost/ee-minimal:1.0 -m stdout
+  117  ansible-navigator run site.yml 
+  118  ls
+  119  podman images
+  120  ansible-navigator run site.yml --eei ee-motd-minimal:1.0 -m stdout
+  121  ssh servera
+  122  podman images
+  123  podman login quay.io
+  124  podman tag ee-motd-minimal:1.0 quay.io/cavernon70/ee-motd-minimal:1.0
+  125  podman images
+  126  podman push quay.io/cavernon70/ee-motd-minimal
+  127  podman push quay.io/cavernon70/ee-motd-minimal:1.0
+  128  podman rmi -af
+  129  podman images
+  130  cd ee-custom/
+  131  ls
+  132  cd context/
+  133  ls
+  134  cd ..
+  135  podman build -t ee-motd-minimal:1.0 context/
+  136  podman images
+  137  cd
+  138  git clone https://github.com/ssureshmuga/ansible374
+  139  cp -rv devops ansible374/
+  140  cd ansible374/
+  141  tree 
+  142  git add .
+  143  git commit -m "add files"
+  144  git push
+  145  git status 
+  146  git push -u origin master
+  147  git push 
+  148  git push .
+  149  git push
+  150  git push -u origin main 
+  151  cd ..
+  152  rm -rf ansible374/
+  153  git clone https://github.com/ssureshmuga/ansible374
+  154  history >> ansible374/history374.txt
