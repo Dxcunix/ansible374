@@ -1,0 +1,188 @@
+    1  su -
+    2  git --version
+    3  rpm -qa vim*
+    4  ansible-navigator --version
+    5  sudo dnf install ansible-navigator
+    6  ansible-navigator --version
+    7  ansible-builder --version
+    8  rpm -qa podman
+    9  ssh student@control
+   10  mkdir ex374
+   11  cd ex374/
+   12  git init
+   13  git config user.name gituser
+   14  git config --global user.name gituser
+   15  git config --global user.email gituser@lab.example.com
+   16  git config --global -l
+   17  git config --global push.default simple
+   18  git config --global -l
+   19  git config --global credential.helper store
+   20  git config --global -l
+   21  git clone https://github.com/ssureshmuga/user-project
+   22  ll
+   23  cd user-project/
+   24  ll
+   25  vim inventory 
+   26  vim create_user.yml 
+   27  ll
+   28  #ansible-navigator settings --effective --eei ee-supported-rhel8> /tmp/ansible-navigator.yml
+   29  podman login -u admin -p redhat hub.lab.example.com
+   30  ansible-navigator settings --effective --eei ee-supported-rhel8> /tmp/ansible-navigator.yml
+   31  cp /tmp/ansible-navigator.yml .
+   32  vim ansible-navigator.yml 
+   33  ansible-navigator run create_user.yml --syntax-check -m stdout
+   34  ansible-navigator run create_user.yml --syntax
+   35  vim user_list.yml 
+   36  ansible-navigator run create_user.yml 
+   37  ansible prod -a 'tail /etc/group'
+   38  vim ansible.cfg 
+   39  ansible prod -a 'tail /etc/group'
+   40  ansible-navigator run create_user.yml 
+   41  ansible prod -a 'tail /etc/group'
+   42  vim ansible.cfg 
+   43  vim create_user.yml 
+   44  vim user_list.yml 
+   45  cat create_user.yml 
+   46  cat inventory 
+   47  vim user_list.yml 
+   48  vim create_user.yml 
+   49  ansible-navigator run create_user.yml 
+   50  ansible prod -a 'tail /etc/group'
+   51  git add .
+   52  git commit -m "update playbook"
+   53  git push 
+   54  vim ansible-navigator.yml 
+   55  ll
+   56  rm *.json
+   57  ll
+   58  git add .
+   59  git commit -m "add files"
+   60  git push
+   61  git push -u origin master
+   62  touch test
+   63  git add .
+   64  git commit -m "add files"
+   65  git push -u origin master
+   66  git push 
+   67  cd ..
+   68  git clone https://github.com/ssureshmuga/alias_httpd
+   69  ll
+   70  cd alias_httpd/
+   71  ll
+   72  vim alias.conf 
+   73  vim apache-setup.yml 
+   74  cd
+   75  vim .vimrc
+   76  cd ex374/alias_httpd/
+   77  vim apache-setup.yml 
+   78  cp ../user-project/inventory .
+   79  cp ../user-project/ansible.cfg .
+   80  cp ../user-project/ansible-navigator.yml .
+   81  ll
+   82  vim notinexam.yml
+   83  ansible-navigator run notinexam.yml 
+   84  ansible-navigator run apache-setup.yml --syntax
+   85  vim apache-setup.yml 
+   86  ansible-navigator run apache-setup.yml --syntax
+   87  vim apache-setup.yml 
+   88  ansible-navigator run apache-setup.yml --syntax
+   89  vim apache-setup.yml 
+   90  ansible-navigator run apache-setup.yml --syntax
+   91  ansible-navigator run apache-setup.yml 
+   92  vim apache-setup.yml 
+   93  ansible-navigator run apache-setup.yml 
+   94  curl serverc
+   95  git add .
+   96  git commit -m "update playbook"
+   97  git push -m origin master
+   98  git push -u origin master
+   99  git push origin master
+  100  git push 
+  101  git push origin main
+  102  cd ..
+  103  git clone https://github.com/ssureshmuga/tag-project
+  104  cd tag-project/
+  105  ll
+  106  cp ../user-project/inventory 
+  107  cp ../user-project/inventory .
+  108  cp ../user-project/ansible.cfg .
+  109  cp ../user-project/ansible-navigator.yml .
+  110  ll
+  111  vim tags.yml 
+  112  ansible-navigator run tags.yml 
+  113  ansible-navigator run tags.yml --tag alpha
+  114  curl serverc
+  115  ansible-navigator run tags.yml --tag beta
+  116  curl serverc
+  117  vim tags.yml 
+  118  ansible-navigator run tags.yml --tag beta
+  119  curl serverc
+  120  ansible-navigator run tags.yml --tag alpha
+  121  curl serverc
+  122  ansible-navigator run tags.yml --tag beta
+  123  curl serverc
+  124  git add .
+  125  git commit -m "update playbook"
+  126  git push -u origin main
+  127  ansible-navigator run tags.yml 
+  128  vim tags.yml 
+  129  cp tags.yml tags_original.yml 
+  130  vim tags_original.yml 
+  131  git add .
+  132  git commit -m "add"
+  133  git push
+  134  cd ..
+  135  git clone https://github.com/ssureshmuga/fork-project
+  136  cd fork-project/
+  137  cp ../user-project/ansible.cfg .
+  138  ll
+  139  cat ansible.cfg 
+  140  vim ansible.cfg 
+  141  git add .
+  142  git commit -m "update playbook"
+  143  git push -u origin main
+  144  cd
+  145  cd ex374/
+  146  git clone https://github.com/ssureshmuga/users.clone
+  147  ll
+  148  rm -rf user.clone
+  149  ll
+  150  rm users.clone/
+  151  rm -rf users.clone/
+  152  ll
+  153  git clone https://github.com/ssureshmuga/users_clone
+  154  cd users_clone/
+  155  ll
+  156  vim create_user.yml
+  157  cp ../user-project/inventory .
+  158  cp ../user-project/ansible.cfg .
+  159  cp ../user-project/ansible-navigator.yml .
+  160  ll
+  161  cat user_list.yml 
+  162  ll
+  163  vim create_user.yml
+  164  ansible-navigator run create_user.yml --syntax
+  165  ansible-navigator run create_user.yml -C
+  166  cat user_list.yml 
+  167  vim user_list.yml 
+  168  ansible-navigator run create_user.yml -C
+  169  ansible-navigator run create_user.yml 
+  170  ll
+  171  ansible prod -a 'cat /etc/shadow'
+  172  ansible prod -a 'cat /etc/passwd'
+  173  vim user_list.yml 
+  174  vim create_user.yml
+  175  ansible-navigator run create_user.yml 
+  176  ll
+  177  cat filnema-smith 
+  178  ssh smith@servera
+  179  ssh smith@serverc
+  180  ll
+  181  git add .
+  182  git commit -m "update playbook"
+  183  git push -u origin main
+  184  cd ..
+  185  history 
+  186  cd
+  187  git clone https://github.com/ssureshmuga/ansible374
+  188  history >> ansible374/history19082023.txt
