@@ -1,5 +1,5 @@
 ---
 - name: test role collection invoking play
-  hosts: test
+  hosts: prod
   roles: 
     - student.testcollection.mymotd
