@@ -1,0 +1,126 @@
+    1  mkdir ex374
+    2  cd ex374/
+    3  vim inventory
+    4  mkdir mycollections
+    5  vim ansible.cfg
+    6  su -
+    7  ll
+    8  #ansible-navigator settings --effective --eei ee-supported-rhel8 > /tmp/ansible-navigator.yml
+    9  podman login -u admin -p redhat hub.lab.example.com
+   10  ansible-navigator settings --effective --eei ee-supported-rhel8 > /tmp/ansible-navigator.yml
+   11  cp /tmp/ansible-navigator.yml .
+   12  vim ansible-navigator.yml 
+   13  cat ansible-navigator.yml 
+   14  rm ansible-navigator.yml 
+   15  cp /tmp/ansible-navigator.yml .
+   16  vim ansible-navigator.yml 
+   17  cat ansible-navigator.yml 
+   18  clear
+   19  ll
+   20  cat ansible-navigator.yml 
+   21  cat ansible.cfg 
+   22  vim ansible.cfg 
+   23  ansible-galaxy collection init student.testcollection
+   24  tree 
+   25  cd student/testcollection/
+   26  mkdir meta
+   27  vim meta/runtime.yml
+   28  cat meta/runtime.yml 
+   29  mkdir plugins/modules
+   30  cd
+   31  lab start create-writing 
+   32  cd create-writing/
+   33  ll
+   34  cp myping.py ../ex374/student/testcollection/plugins/modules/
+   35  cd
+   36  cd ex374/student/testcollection/
+   37  ll plugins/modules/
+   38  tree 
+   39  cd roles/
+   40  ansible-galaxy role init mymotd
+   41  tree 
+   42  vim mymotd/templates/motd.j2
+   43  vim mymotd/tasks/main.yml 
+   44  tree 
+   45  cd ..
+   46  tree 
+   47  cd ..
+   48  tree 
+   49  cd testcollection/
+   50  ll
+   51  tree 
+   52  rm -rv docs roles/mymotd/{defaults,files,handlers,tests,vars}
+   53  tree 
+   54  ansible-galaxy collection build
+   55  ll
+   56  cd ../..
+   57  vim ansible.cfg 
+   58  ll
+   59  ansible-galaxy collection install student.testcollection -p mycollections/
+   60  ansible-galaxy collection list
+   61  vim site.yml
+   62  ansible-navigator run site.yml 
+   63  cat inventory 
+   64  vim inventory 
+   65  ansible-navigator run site.yml 
+   66  ssh servera
+   67  mkdir ee-custom
+   68  cd ee-custom/
+   69  tree 
+   70  vim execution-environment.yml
+   71  vim requirements.yml
+   72  ll
+   73  vim requirements.yml
+   74  cp ../student/testcollection/student-testcollection-1.0.0.tar.gz .
+   75  ls
+   76  vim requirements.yml 
+   77  vim requirements.txt
+   78  vim bindep.txt
+   79  tree 
+   80  ansible-builder create
+   81  tree 
+   82  cp student-testcollection-1.0.0.tar.gz context/_build/
+   83  tr
+   84  tree 
+   85  ansible-builder build -t ee-motd-minimal:1.0
+   86  podman login -u admin -p redhat hub.lab.example.com
+   87  ansible-builder build -t ee-motd-minimal:1.0
+   88  podman images
+   89  podman tag ee-motd-minimal:1.0 hub.lab.example.com/ee-motd-minimal:1.0
+   90  podman push hub.lab.example.com/ee-motd-minimal:1.0
+   91  podman images
+   92  cd ../..
+   93  cd ex374/
+   94  vim inventory 
+   95  ansible-navigator run site.yml --eei ee-motd-minimal:1.0 
+   96  vim site.yml 
+   97  ansible-navigator run site.yml --eei ee-motd-minimal:1.0 
+   98  ssh serverb
+   99  cd
+  100  lab start builder-use 
+  101  ls -la
+  102  ls -la .ssh/
+  103  cd .ssh/
+  104  ll
+  105  cp lab_rsa ~/ex374/
+  106  ls -l
+  107  ls -l ~/ex374/
+  108  cd
+  109  cd ex374/
+  110  cat site.yml 
+  111  ll
+  112  cat site.yml 
+  113  ssh serverd
+  114  podman images
+  115  podman login quay.io
+  116  podman images
+  117  podman tag ee-motd-minimal:1.0 quay.io/ssureshmuga/ee-motd-minimal:1.0
+  118  podman push quay.io/ssureshmuga/ee-motd-minimal:1.0
+  119  podman images
+  120  podman tag ee-minimal-rhel8 quay.io/ssureshmuga/ee-minimal-rhel8
+  121  podman push quay.io/ssureshmuga/ee-minimal-rhel8
+  122  git clone https://github.com/ssureshmuga/ansible374
+  123  cd ansible374/
+  124  kk
+  125  ll
+  126  history > history22082023.txt
