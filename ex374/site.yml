@@ -1,0 +1,5 @@
+---
+- name: test role configuration play
+  hosts: web
+  roles:
+    - student.testcollection.mymotd

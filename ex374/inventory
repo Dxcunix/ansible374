@@ -1,0 +1,6 @@
+[prod]
+servera.lab.example.com
+
+[web]
+serverb.lab.example.com
+
