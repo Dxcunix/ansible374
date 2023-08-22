@@ -1,0 +1,5 @@
+---
+- name: test role collection invoking play
+  hosts: test
+  roles: 
+    - student.testcollection.mymotd
